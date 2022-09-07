@@ -97,10 +97,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FireAmmoCount: 2
-  magazinecap: 4
+  magazinecap: 5
+  currentmagcap: 5
+  cooldowntime: 0.6
+  isPlayer: 0
   AmmoType: {fileID: 7160618592062670227, guid: 2090550facda0ea4588e7bc98fe2c002, type: 3}
   BulletTransform: {fileID: 3141139899925851652}
   incooldown: 0
+  LookingLeft: 0
   canattack: 1
   isplayer: 0
 --- !u!1 &6467565169211035304
@@ -127,7 +131,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6467565169211035304}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.693, y: 0.108, z: -0.09309741}
+  m_LocalPosition: {x: 0.612, y: 0.108, z: -0.09309741}
   m_LocalScale: {x: 0.6666667, y: 0.6666667, z: 1}
   m_Children: []
   m_Father: {fileID: 3036454313476028444}

@@ -21,9 +21,12 @@ ve takip olaylarını araştır ve bul
 public abstract class Weapons : MonoBehaviour
 {
   public int FireAmmoCount;
-  public int magazinecap;
+  public int magazinecap,currentmagcap;
+  public float cooldowntime;
+  public bool isPlayer;
   public GameObject AmmoType;
   public Transform BulletTransform;
+  
   Vector3 diffrance;
   public bool incooldown=false ,LookingLeft,canattack=true;
    
@@ -32,7 +35,7 @@ public abstract class Weapons : MonoBehaviour
     incooldown=true;
     
 
-    yield return new WaitForSeconds(0.4f);
+    yield return new WaitForSeconds(cooldowntime);
 
     incooldown=false;
 
@@ -60,26 +63,79 @@ public abstract class Weapons : MonoBehaviour
   }
 public void FixedUpdate()
 {
- WeaponRotation();
-  if(canattack)
+  if(isPlayer)
   {
-  if(Input.GetMouseButton(0) &&!incooldown )
-    {
-    WeaponShot();
-    StartCoroutine(cooldownlook());
-    }
+    
+   if(canattack)
+     {
+      WeaponRotation();
+     if(Input.GetMouseButton(0) && !incooldown )
+       {
+        WeaponShot();
+        StartCoroutine(cooldownlook());
+       }
+      }
+      else
+      {
+       //mermi doldurma şeysi transfrom rotation a bağla
+       transform.Rotate(0,0,10);
+       Debug.Log("kackere");
+       if(reload)
+       {
+         StartCoroutine(Reload());
+         reload=false;
+       }
+       
+      }
   }
+  else
+  {
+    WeaponRotation();
+  }
+ 
+  
+}
+bool reload=true;
+//panelde dolum tablosu yap ki gösterilsin
+IEnumerator Reload()
+{
+  //bool kapalı
+yield return new WaitForSeconds(1f);
+//boolu aktif eder
+for(int i=0;i<=10;i++)
+{
+if(Input.GetKey(KeyCode.Space))
+{
+  currentmagcap=magazinecap;
+  Debug.Log("basildi");
+ reload=true;
+  yield break; 
+  
+}
+yield return new WaitForSeconds(0.05f);
+}
+// tam zamanında basma olayı olabilir
+yield return new WaitForSeconds(1f);
+//bool kapalı
+ reload=true;
+currentmagcap=magazinecap;
+
+yield break;
 }
  public void WeaponShot()
  {
-  magazinecap-=1;
+  if(isPlayer)
+  {
+   currentmagcap-=1;
+  }
+  
 
   for(int i=0;i<=FireAmmoCount-1;i++)
   {
   
-    GameObject ammo=Instantiate(AmmoType,BulletTransform.position+new Vector3(Random.Range(-0.4f,0.4f),Random.Range(-0.4f,0.4f),0),Quaternion.identity);
+    GameObject ammo=Instantiate(AmmoType,BulletTransform.position+new Vector3(Random.Range(0.2f,0.2f),Random.Range(0.2f,0.2f),0),Quaternion.identity);
     // hedef aldığın yere göre mermi hızı
-    ammo.GetComponent<Rigidbody2D>().velocity=diffrance+new Vector3((int)Random.Range(-3f,3f),(int)Random.Range(-3f,3f),0);
+    ammo.GetComponent<Rigidbody2D>().AddForce(BulletTransform.right*10+new Vector3(Random.Range(1.5f*i,-1.5f*i),Random.Range(1.5f*i,-1.5f*i),0),ForceMode2D.Impulse);
 
       
     /*instantiate lazım ve instantiate bullettransform un küçük randomlar eklenerek atılmasına ayarlı

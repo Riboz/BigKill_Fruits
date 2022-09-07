@@ -16,8 +16,8 @@ public class Hweapon : Weapons
         if(isplayer)
         {
 
-     
-        if(magazinecap>0)
+        isPlayer=true;
+        if(currentmagcap>0)
         {
             canattack=true;
         }
@@ -29,6 +29,10 @@ public class Hweapon : Weapons
         {
             // bir slider oluşsun sliderin ortasında herhangi bir
         }
+        }
+        else
+        {
+            isPlayer=false;
         }
         
     }
