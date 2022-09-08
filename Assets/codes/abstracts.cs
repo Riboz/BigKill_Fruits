@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-
+public interface Ifruits
+{
+  //dotweenli animasyonik meyveler
+}
 public abstract class Fruits : MonoBehaviour
 {
   
@@ -41,6 +44,8 @@ public abstract class Weapons : MonoBehaviour
 
     yield break;
   }
+  
+
   public void WeaponRotation()
   {
     diffrance = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
@@ -100,26 +105,31 @@ bool reload=true;
 IEnumerator Reload()
 {
   //bool kapalı
-yield return new WaitForSeconds(1f);
+  Reloadimage.GetComponent<SpriteRenderer>().color=Color.red;
+  reloadscene(true);
+yield return new WaitForSeconds(1.5f);
 //boolu aktif eder
+Reloadimage.GetComponent<SpriteRenderer>().color=Color.green;
 for(int i=0;i<=10;i++)
 {
 if(Input.GetKey(KeyCode.Space))
 {
   currentmagcap=magazinecap;
   Debug.Log("basildi");
+  reloadscene(false);
  reload=true;
   yield break; 
   
 }
 yield return new WaitForSeconds(0.05f);
 }
+  Reloadimage.GetComponent<SpriteRenderer>().color=Color.red;
 // tam zamanında basma olayı olabilir
-yield return new WaitForSeconds(1f);
+yield return new WaitForSeconds(1.5f);
 //bool kapalı
  reload=true;
 currentmagcap=magazinecap;
-
+reloadscene(false);
 yield break;
 }
  public void WeaponShot()
@@ -142,6 +152,27 @@ yield break;
    mermiler izlenilen direksiyonda karakterin hızının eklenilmesiyle atılmalı*/
   }
  }
-
+ GameObject Reloadimage;
+ public void reloadvoid(GameObject reloadimage)
+ {
+ Reloadimage=reloadimage;
+ }
+public void reloadscene(bool status)
+    {
+      if(status)
+      {
+   
+      Reloadimage.SetActive(true);
+     
+      }
+      else
+      {
+      // nesne kapanır
+       Reloadimage.SetActive(false);
+      }
+     
+   
+      
+    }
  //silahların mermisi bitince hepsinde reload olmayacak çünkü enemylerinde var silahları
 }

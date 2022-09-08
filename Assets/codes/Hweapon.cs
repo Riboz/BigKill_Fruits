@@ -8,9 +8,13 @@ using UnityEngine;
 public class Hweapon : Weapons
 {
     public bool isplayer=false;
+    public GameObject reloadimage;
      // startda olduğu objenin ismine göre belirlenicek
     // Update is called once per frame
-    
+    public void Start()
+    {
+        reloadvoid(reloadimage);
+    }
     void Update()
     {
         if(isplayer)

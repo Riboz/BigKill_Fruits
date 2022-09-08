@@ -7,10 +7,12 @@ public class myplayer : MonoBehaviour
     // Start is called before the first frame update
     public GameObject[] weapons;
     Rigidbody2D rb;
-
+    public static GameObject reloadimage;
     public Transform Weaponpos;
+    
     void Start()
     {
+        reloadimage=GameObject.FindGameObjectWithTag("reimage");
 
      int randomint=Random.Range(0,3);
 
@@ -45,4 +47,5 @@ public class myplayer : MonoBehaviour
         rb.velocity=new Vector2(Horizontalx*4,Verticaly*4);
         
     }
+    
 }
