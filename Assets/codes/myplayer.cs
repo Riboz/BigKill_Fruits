@@ -7,12 +7,11 @@ public class myplayer : MonoBehaviour
     // Start is called before the first frame update
     public GameObject[] weapons;
     Rigidbody2D rb;
-    public static GameObject reloadimage;
+    public  GameObject reloadimage;
     public Transform Weaponpos;
-    
     void Start()
     {
-        reloadimage=GameObject.FindGameObjectWithTag("reimage");
+   
 
      int randomint=Random.Range(0,3);
 
@@ -20,7 +19,7 @@ public class myplayer : MonoBehaviour
 
      GameObject weapon=Instantiate(weapons[randomint],Weaponpos.position,Quaternion.identity);
      weapon.GetComponent<Hweapon>().isplayer=true;
-
+    weapon.GetComponent<Hweapon>().reloadimage=reloadimage;
      weapon.transform.SetParent(this.transform);
 
       StartCoroutine(weaponplace(weapon));

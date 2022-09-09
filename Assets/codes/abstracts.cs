@@ -48,6 +48,8 @@ public abstract class Weapons : MonoBehaviour
 
   public void WeaponRotation()
   {
+    if(isPlayer)
+    {
     diffrance = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
     float RotZ = Mathf.Atan2(diffrance.y, diffrance.x) * Mathf.Rad2Deg;
     transform.rotation = Quaternion.Euler(0f, 0f, RotZ);
@@ -64,6 +66,11 @@ public abstract class Weapons : MonoBehaviour
       Vector3 scale=transform.localScale;
        scale.y*=-1;
        transform.localScale=scale;
+    }
+    }
+    else
+    {
+      // enemylerin bakisi
     }
   }
 public void FixedUpdate()
@@ -83,19 +90,28 @@ public void FixedUpdate()
       else
       {
        //mermi doldurma şeysi transfrom rotation a bağla
+       
        transform.Rotate(0,0,10);
        Debug.Log("kackere");
        if(reload)
        {
-         StartCoroutine(Reload());
+        reloadscene(false);
+
          reload=false;
+
+         StartCoroutine(Reload());
+        
        }
        
       }
   }
   else
   {
+    // normal botların functionlari
+    //eğer player düsmanın colliderine gelirse bunları çalıştırıcak 
     WeaponRotation();
+    //weaponshot a bir cooldown eklenecek
+   
   }
  
   
@@ -106,7 +122,9 @@ IEnumerator Reload()
 {
   //bool kapalı
   Reloadimage.GetComponent<SpriteRenderer>().color=Color.red;
+
   reloadscene(true);
+
 yield return new WaitForSeconds(1.5f);
 //boolu aktif eder
 Reloadimage.GetComponent<SpriteRenderer>().color=Color.green;
@@ -116,20 +134,35 @@ if(Input.GetKey(KeyCode.Space))
 {
   currentmagcap=magazinecap;
   Debug.Log("basildi");
-  reloadscene(false);
+  
+ 
+
+ reloadscene(false);
+
  reload=true;
+ canattack=true;
+
   yield break; 
   
 }
-yield return new WaitForSeconds(0.05f);
+yield return new WaitForSeconds(0.1f);
 }
+
   Reloadimage.GetComponent<SpriteRenderer>().color=Color.red;
 // tam zamanında basma olayı olabilir
 yield return new WaitForSeconds(1.5f);
 //bool kapalı
- reload=true;
+ 
+
 currentmagcap=magazinecap;
+
+
+
+reload=true;
+canattack=true;
+
 reloadscene(false);
+
 yield break;
 }
  public void WeaponShot()
@@ -161,11 +194,9 @@ public void reloadscene(bool status)
     {
       if(status)
       {
-   
       Reloadimage.SetActive(true);
-     
       }
-      else
+      else 
       {
       // nesne kapanır
        Reloadimage.SetActive(false);
