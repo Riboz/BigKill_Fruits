@@ -2,9 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+public enum who
+{
+    player,reloadimage
+}
 public class reloadimagedotween : MonoBehaviour
 {
-    // Start is called before the first frame update
+   public who who;
+    
     int i=0;
     void OnEnable()
     {
@@ -12,6 +17,8 @@ public class reloadimagedotween : MonoBehaviour
     }
  IEnumerator Dotween()
  {
+    if(who==who.reloadimage)
+    {
     while( i==0)
     {
 
@@ -23,6 +30,23 @@ public class reloadimagedotween : MonoBehaviour
     
     yield return new WaitForSeconds(1f);
     }
+
+    }
+    if(who==who.player)
+    {
+    while( i==0)
+    {
+
+    this.transform.DOScale(new Vector3(1.2f,1.2f,0),2f);
+
+    yield return new WaitForSeconds(1f);
+
+    this.transform.DOScale(new Vector3(1.6f,1.6f,0f),2f);
+    
+    yield return new WaitForSeconds(1f);
+    }
+    }
+
     
  }
     // Update is called once per frame

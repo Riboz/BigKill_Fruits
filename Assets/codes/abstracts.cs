@@ -161,6 +161,7 @@ currentmagcap=magazinecap;
 reload=true;
 canattack=true;
 
+
 reloadscene(false);
 
 yield break;
