@@ -17669,6 +17669,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4081325060118399631, guid: c8844d297712a1949a561be14bc5c2be, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 85a6656d70110114ea94e088430c951a, type: 3}
     - target: {fileID: 4415716739535648122, guid: c8844d297712a1949a561be14bc5c2be, type: 3}
       propertyPath: m_Name
       value: Watermelon
@@ -17683,11 +17687,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7960297144077825538, guid: c8844d297712a1949a561be14bc5c2be, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.0589647
+      value: -5.93
       objectReference: {fileID: 0}
     - target: {fileID: 7960297144077825538, guid: c8844d297712a1949a561be14bc5c2be, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.10137999
+      value: -0.25
       objectReference: {fileID: 0}
     - target: {fileID: 7960297144077825538, guid: c8844d297712a1949a561be14bc5c2be, type: 3}
       propertyPath: m_LocalPosition.z
@@ -17780,7 +17784,11 @@ PrefabInstance:
       objectReference: {fileID: 114015366}
     - target: {fileID: 5997114300014168313, guid: e41869effbf57f640852d6d283808ef2, type: 3}
       propertyPath: m_Name
-      value: we
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5997114300014168313, guid: e41869effbf57f640852d6d283808ef2, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5997114300014168316, guid: e41869effbf57f640852d6d283808ef2, type: 3}
       propertyPath: m_RootOrder

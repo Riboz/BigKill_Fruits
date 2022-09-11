@@ -70,6 +70,25 @@ public abstract class Weapons : MonoBehaviour
     }
     else
     {
+      GameObject player=GameObject.FindGameObjectWithTag("Player");
+      diffrance=player.transform.position-this.transform.position;
+      float RotZ=Mathf.Atan2(diffrance.y,diffrance.x)*Mathf.Rad2Deg;
+      transform.rotation=Quaternion.Euler(0,0,RotZ);
+      if(diffrance.x<0 && !LookingLeft)
+    {
+      LookingLeft=true;
+      Vector3 scale=transform.localScale;
+       scale.y*=-1;
+       transform.localScale=scale;
+    }
+    if(diffrance.x>0 && LookingLeft)
+    {
+      LookingLeft=false;
+      Vector3 scale=transform.localScale;
+       scale.y*=-1;
+       transform.localScale=scale;
+    }
+
       // enemylerin bakisi
     }
   }
@@ -107,7 +126,7 @@ public void FixedUpdate()
   }
   else
   {
-    // normal botların functionlari
+    
     //eğer player düsmanın colliderine gelirse bunları çalıştırıcak 
     WeaponRotation();
     //weaponshot a bir cooldown eklenecek

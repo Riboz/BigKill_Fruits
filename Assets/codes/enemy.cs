@@ -19,8 +19,9 @@ public class enemy : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        // collider oluştur collidera değince belirli bir uzaklığa 2-3 saniye yürüsün sonrasında da ateş etsin ya da yürürken ateş etsin  ve karakteri belirli mesafeden takip etsin
+
     }
 }
