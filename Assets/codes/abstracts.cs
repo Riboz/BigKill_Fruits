@@ -230,12 +230,14 @@ yield break;
    if(isPlayer)
    {
     GameObject ammo=Instantiate(ammotype2,BulletTransform.position+new Vector3(Random.Range(0.2f,0.2f),Random.Range(0.2f,0.2f),0),Quaternion.identity);
-     ammo.GetComponent<Rigidbody2D>().AddForce(BulletTransform.right*10+new Vector3(Random.Range(1.5f*i,-1.5f*i),Random.Range(1.5f*i,-1.5f*i),0),ForceMode2D.Impulse);
+     ammo.GetComponent<Rigidbody2D>().AddForce(BulletTransform.right*12+new Vector3(Random.Range(1.5f*i,-1.5f*i),Random.Range(1.5f*i,-1.5f*i),0),ForceMode2D.Impulse);
+     Destroy(ammo,5f);
      }
      else
       {GameObject ammo=Instantiate(AmmoType,BulletTransform.position+new Vector3(Random.Range(0.2f,0.2f),Random.Range(0.2f,0.2f),0),Quaternion.identity);
     // hedef aldığın yere göre mermi hızı
-    ammo.GetComponent<Rigidbody2D>().AddForce(BulletTransform.right*10+new Vector3(Random.Range(1.5f*i,-1.5f*i),Random.Range(1.5f*i,-1.5f*i),0),ForceMode2D.Impulse);}
+    ammo.GetComponent<Rigidbody2D>().AddForce(BulletTransform.right*7+new Vector3(Random.Range(1.5f*i,-1.5f*i),Random.Range(1.5f*i,-1.5f*i),0),ForceMode2D.Impulse);
+    Destroy(ammo,5f);}
 
       
     /*instantiate lazım ve instantiate bullettransform un küçük randomlar eklenerek atılmasına ayarlı

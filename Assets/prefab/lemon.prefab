@@ -281,7 +281,7 @@ PrefabInstance:
     - target: {fileID: 7589479881076447119, guid: 2f90b00f1e7c2f247a430eeb36e473a6, type: 3}
       propertyPath: UVModule.sprites.Array.data[0].sprite
       value: 
-      objectReference: {fileID: -5220277899377451537, guid: 2bf3dd1f92293924087eb8bffdaad1bc, type: 3}
+      objectReference: {fileID: 21300000, guid: 327d8aad4e63adf468aeb132ef0e22db, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f90b00f1e7c2f247a430eeb36e473a6, type: 3}
 --- !u!4 &2697910039794515312 stripped
