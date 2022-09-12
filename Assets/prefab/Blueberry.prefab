@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 4049633041460600114}
   - component: {fileID: 4094127986102609126}
   - component: {fileID: 3801881634300938783}
+  - component: {fileID: 8528985405672093262}
   m_Layer: 0
   m_Name: Blueberry
   m_TagString: Untagged
@@ -205,6 +206,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8528985405672093262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8779409689600951594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c6fc0812dce9df448bc6501eb188c52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapons:
+  - {fileID: 8383193459422543355, guid: 345726c73ea7091429cce76474cb9107, type: 3}
+  - {fileID: 806133958263410114, guid: 68d3510b2b4f06e4ca9f6bcac10a0fb3, type: 3}
+  - {fileID: 3036454313476028446, guid: bc8850a385de98a4d82392cda9fddf64, type: 3}
+  Weaponpos: {fileID: 5512964759320780946}
 --- !u!1001 &1484850643164406327
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 3165078257450431576}
   - component: {fileID: 3938693762336622970}
   - component: {fileID: 5879927359680961945}
+  - component: {fileID: -1470941865258961279}
   m_Layer: 0
   m_Name: lemon
   m_TagString: Untagged
@@ -157,7 +158,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 2307146440110936953, guid: 68bf7a231b2dc8f46a6a3704701ea21b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 461b514a1de46b4498345651018b54b3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -205,6 +206,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-1470941865258961279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8888349407970095993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c6fc0812dce9df448bc6501eb188c52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapons:
+  - {fileID: 806133958263410114, guid: 68d3510b2b4f06e4ca9f6bcac10a0fb3, type: 3}
+  - {fileID: 8383193459422543355, guid: 345726c73ea7091429cce76474cb9107, type: 3}
+  - {fileID: 3036454313476028446, guid: bc8850a385de98a4d82392cda9fddf64, type: 3}
+  Weaponpos: {fileID: 5930509392792686394}
 --- !u!1001 &1368994046262653745
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -27,8 +27,9 @@ public abstract class Weapons : MonoBehaviour
   public int magazinecap,currentmagcap;
   public float cooldowntime;
   public bool isPlayer;
-  public GameObject AmmoType;
+  public GameObject AmmoType,ammotype2;
   public Transform BulletTransform;
+  public LayerMask playermask;
   
   Vector3 diffrance;
   public bool incooldown=false ,LookingLeft,canattack=true;
@@ -92,6 +93,7 @@ public abstract class Weapons : MonoBehaviour
       // enemylerin bakisi
     }
   }
+  float timer;
 public void FixedUpdate()
 {
   if(isPlayer)
@@ -102,6 +104,7 @@ public void FixedUpdate()
       WeaponRotation();
      if(Input.GetMouseButton(0) && !incooldown )
        {
+        
         WeaponShot();
         StartCoroutine(cooldownlook());
        }
@@ -124,10 +127,31 @@ public void FixedUpdate()
        
       }
   }
-  else
+  else 
   {
     
-    //eğer player düsmanın colliderine gelirse bunları çalıştırıcak 
+   Collider2D[] colliderx=Physics2D.OverlapCircleAll(this.transform.position,7f,playermask);
+   
+   for(int i=0;i<=colliderx.Length-1;i++)
+   {
+    if(colliderx[0]!=null)
+   {
+  
+   Playerdetected=true;
+   break;
+   }
+   }
+  
+   if(Playerdetected)
+   {
+    timer+=Time.deltaTime; 
+   if(timer>=2)
+   {
+    WeaponShot();
+    timer=0;
+   }
+   }
+   
     WeaponRotation();
     //weaponshot a bir cooldown eklenecek
    
@@ -135,7 +159,13 @@ public void FixedUpdate()
  
   
 }
-bool reload=true;
+
+void OnDrawGizmosSelected()
+{
+Gizmos.color=Color.red;
+Gizmos.DrawSphere(this.transform.position,7f);
+}
+bool reload=true,Playerdetected=false;
 //panelde dolum tablosu yap ki gösterilsin
 IEnumerator Reload()
 {
@@ -187,6 +217,7 @@ yield break;
 }
  public void WeaponShot()
  {
+  //silahın ucuna ateş efekti ekle
   if(isPlayer)
   {
    currentmagcap-=1;
@@ -196,9 +227,15 @@ yield break;
   for(int i=0;i<=FireAmmoCount-1;i++)
   {
   
-    GameObject ammo=Instantiate(AmmoType,BulletTransform.position+new Vector3(Random.Range(0.2f,0.2f),Random.Range(0.2f,0.2f),0),Quaternion.identity);
+   if(isPlayer)
+   {
+    GameObject ammo=Instantiate(ammotype2,BulletTransform.position+new Vector3(Random.Range(0.2f,0.2f),Random.Range(0.2f,0.2f),0),Quaternion.identity);
+     ammo.GetComponent<Rigidbody2D>().AddForce(BulletTransform.right*10+new Vector3(Random.Range(1.5f*i,-1.5f*i),Random.Range(1.5f*i,-1.5f*i),0),ForceMode2D.Impulse);
+     }
+     else
+      {GameObject ammo=Instantiate(AmmoType,BulletTransform.position+new Vector3(Random.Range(0.2f,0.2f),Random.Range(0.2f,0.2f),0),Quaternion.identity);
     // hedef aldığın yere göre mermi hızı
-    ammo.GetComponent<Rigidbody2D>().AddForce(BulletTransform.right*10+new Vector3(Random.Range(1.5f*i,-1.5f*i),Random.Range(1.5f*i,-1.5f*i),0),ForceMode2D.Impulse);
+    ammo.GetComponent<Rigidbody2D>().AddForce(BulletTransform.right*10+new Vector3(Random.Range(1.5f*i,-1.5f*i),Random.Range(1.5f*i,-1.5f*i),0),ForceMode2D.Impulse);}
 
       
     /*instantiate lazım ve instantiate bullettransform un küçük randomlar eklenerek atılmasına ayarlı

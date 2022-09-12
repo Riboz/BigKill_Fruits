@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4289780751874960282}
   - component: {fileID: 7573380084404447435}
   - component: {fileID: 2931552084268824699}
+  - component: {fileID: 6057887378172834979}
   m_Layer: 0
   m_Name: Misketlemon
   m_TagString: Untagged
@@ -123,6 +124,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6057887378172834979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4289780751874960277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c6fc0812dce9df448bc6501eb188c52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapons:
+  - {fileID: 8383193459422543355, guid: 345726c73ea7091429cce76474cb9107, type: 3}
+  - {fileID: 806133958263410114, guid: 68d3510b2b4f06e4ca9f6bcac10a0fb3, type: 3}
+  - {fileID: 3036454313476028446, guid: bc8850a385de98a4d82392cda9fddf64, type: 3}
+  Weaponpos: {fileID: 4289780752701058369}
 --- !u!1 &4289780752701058368
 GameObject:
   m_ObjectHideFlags: 0

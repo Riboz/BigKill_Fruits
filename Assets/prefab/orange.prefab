@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3890660870875056492}
   - component: {fileID: 6778498082568345160}
   - component: {fileID: 8587893624400398360}
+  - component: {fileID: 7301920006571766384}
   m_Layer: 0
   m_Name: orange
   m_TagString: Untagged
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: -6843949804538817815, guid: 68bf7a231b2dc8f46a6a3704701ea21b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 16c6c8041b19f214cbe34d02484c696a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -123,6 +124,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7301920006571766384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096767832647151705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c6fc0812dce9df448bc6501eb188c52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapons:
+  - {fileID: 806133958263410114, guid: 68d3510b2b4f06e4ca9f6bcac10a0fb3, type: 3}
+  - {fileID: 8383193459422543355, guid: 345726c73ea7091429cce76474cb9107, type: 3}
+  - {fileID: 3036454313476028446, guid: bc8850a385de98a4d82392cda9fddf64, type: 3}
+  Weaponpos: {fileID: 300125949008176501}
 --- !u!1 &8121419511563384869
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,9 +279,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7589479881076447119, guid: 2f90b00f1e7c2f247a430eeb36e473a6, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7589479881076447119, guid: 2f90b00f1e7c2f247a430eeb36e473a6, type: 3}
       propertyPath: UVModule.sprites.Array.data[0].sprite
       value: 
-      objectReference: {fileID: -834841504565755965, guid: 2bf3dd1f92293924087eb8bffdaad1bc, type: 3}
+      objectReference: {fileID: 21300000, guid: d1c4e6f112d1d6d4999d9c65822a2664, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f90b00f1e7c2f247a430eeb36e473a6, type: 3}
 --- !u!4 &4005001815390218978 stripped
