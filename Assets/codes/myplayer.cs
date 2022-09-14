@@ -61,8 +61,8 @@ public class myplayer : MonoBehaviour
     }
     public IEnumerator jump()
     {
-        candamaged=false;
         speed=6;
+        candamaged=false;
      for(int i=0;i<30;i++)
      {
         transform.rotation=Quaternion.Euler(0,0,-12*i);

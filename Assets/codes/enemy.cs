@@ -8,7 +8,7 @@ public class enemy :MonoBehaviour
    public GameObject[] weapons;
    public Transform Weaponpos;
    bool Follow=false,go;
-   Vector3 going;
+   public Vector3 going;
  public LayerMask player;
    
    int i=0;
@@ -37,7 +37,7 @@ public class enemy :MonoBehaviour
         int randomint=Random.Range(0,3);
         Player=GameObject.FindGameObjectWithTag("Player");
      rb=GetComponent<Rigidbody2D>();
-
+      going=new Vector3((int)Random.Range(-10,10),(int)Random.Range(-8,8),0);
      GameObject weapon=Instantiate(weapons[randomint],Weaponpos.position,Quaternion.identity);
      StartCoroutine(weaponplace(weapon));
      weapon.GetComponent<Hweapon>().isplayer=false;
@@ -64,7 +64,7 @@ public class enemy :MonoBehaviour
         {
         
 
-        if(Vector2.Distance(Player.transform.position,going)>6f && Vector2.Distance(Player.transform.position,going)<15f&&going.x>-17&&going.x>-17 &&going.y>-11&&going.y<16  )
+        if(Vector2.Distance(Player.transform.position,going)>6f && Vector2.Distance(Player.transform.position,going)<12f&&going.x>-17&&going.x>-17 &&going.y>-11&&going.y<16  )
         {
             
                Follow=false;
@@ -93,12 +93,12 @@ public class enemy :MonoBehaviour
     }
     IEnumerator FollowDelay()
     {
-    yield return new WaitForSeconds(1.5f);
+    yield return new WaitForSeconds(Random.Range(1,3));
     Follow=true;
     }
     void follower()
     {
-    Collider2D[]range=Physics2D.OverlapCircleAll(this.transform.position,20,player);
+    Collider2D[]range=Physics2D.OverlapCircleAll(this.transform.position,14,player);
     for(int i=0;i<=range.Length-1;i++)
    {
     if(range[0]!=null)

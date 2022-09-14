@@ -37,13 +37,13 @@ public class reloadimagedotween : MonoBehaviour
     while( i==0)
     {
 
-    this.transform.DOScale(new Vector3(1.1f,1.1f,0),3f);
+    this.transform.DOScale(new Vector3(1.1f,1.1f,0),0.75f);
 
-    yield return new WaitForSeconds(2f);
+    yield return new WaitForSeconds(1f);
 
-    this.transform.DOScale(new Vector3(1.3f,1.3f,0f),3f);
+    this.transform.DOScale(new Vector3(1.3f,1.3f,0f),0.75f);
     
-    yield return new WaitForSeconds(2f);
+    yield return new WaitForSeconds(1f);
     }
     }
 

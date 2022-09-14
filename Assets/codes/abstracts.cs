@@ -147,7 +147,7 @@ public void FixedUpdate()
     timer+=Time.deltaTime; 
     if(magazinecap==10)
     {
-      if(timer>=1f)
+      if(timer>=0.75f)
    {
     WeaponShot();
     timer=0;
@@ -155,7 +155,7 @@ public void FixedUpdate()
     }
     if(magazinecap==5)
     {
-      if(timer>=2.5f)
+      if(timer>=2f)
    {
     WeaponShot();
     timer=0;
