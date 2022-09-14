@@ -130,7 +130,7 @@ public void FixedUpdate()
   else 
   {
     
-   Collider2D[] colliderx=Physics2D.OverlapCircleAll(this.transform.position,7f,playermask);
+   Collider2D[] colliderx=Physics2D.OverlapCircleAll(this.transform.position,10f,playermask);
    
    for(int i=0;i<=colliderx.Length-1;i++)
    {
@@ -145,7 +145,23 @@ public void FixedUpdate()
    if(Playerdetected)
    {
     timer+=Time.deltaTime; 
-   if(timer>=2)
+    if(magazinecap==10)
+    {
+      if(timer>=0.75f)
+   {
+    WeaponShot();
+    timer=0;
+    }
+    }
+    if(magazinecap==5)
+    {
+      if(timer>=1.5f)
+   {
+    WeaponShot();
+    timer=0;
+    }
+    }
+   if(timer>=2.5f)
    {
     WeaponShot();
     timer=0;
@@ -163,7 +179,7 @@ public void FixedUpdate()
 void OnDrawGizmosSelected()
 {
 Gizmos.color=Color.red;
-Gizmos.DrawSphere(this.transform.position,7f);
+Gizmos.DrawSphere(this.transform.position,10f);
 }
 bool reload=true,Playerdetected=false;
 //panelde dolum tablosu yap ki gösterilsin
@@ -179,7 +195,7 @@ yield return new WaitForSeconds(1.5f);
 Reloadimage.GetComponent<SpriteRenderer>().color=Color.green;
 for(int i=0;i<=10;i++)
 {
-if(Input.GetKey(KeyCode.Space))
+if(Input.GetKey(KeyCode.C))
 {
   currentmagcap=magazinecap;
   Debug.Log("basildi");
@@ -231,13 +247,13 @@ yield break;
    {
     GameObject ammo=Instantiate(ammotype2,BulletTransform.position+new Vector3(Random.Range(0.2f,0.2f),Random.Range(0.2f,0.2f),0),Quaternion.identity);
      ammo.GetComponent<Rigidbody2D>().AddForce(BulletTransform.right*12+new Vector3(Random.Range(1.5f*i,-1.5f*i),Random.Range(1.5f*i,-1.5f*i),0),ForceMode2D.Impulse);
-     Destroy(ammo,5f);
+     Destroy(ammo,4f);
      }
      else
       {GameObject ammo=Instantiate(AmmoType,BulletTransform.position+new Vector3(Random.Range(0.2f,0.2f),Random.Range(0.2f,0.2f),0),Quaternion.identity);
     // hedef aldığın yere göre mermi hızı
     ammo.GetComponent<Rigidbody2D>().AddForce(BulletTransform.right*7+new Vector3(Random.Range(1.5f*i,-1.5f*i),Random.Range(1.5f*i,-1.5f*i),0),ForceMode2D.Impulse);
-    Destroy(ammo,5f);}
+    Destroy(ammo,4f);}
 
       
     /*instantiate lazım ve instantiate bullettransform un küçük randomlar eklenerek atılmasına ayarlı

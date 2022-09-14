@@ -5,6 +5,7 @@ using UnityEngine;
 public class myplayer : MonoBehaviour
 {
     // Start is called before the first frame update
+    public bool candamaged=true;
     public GameObject[] weapons;
     Rigidbody2D rb;
     public  GameObject reloadimage;
@@ -35,9 +36,20 @@ public class myplayer : MonoBehaviour
     }
 
     // Update is called once per frame
+    bool canjump=true;
     void FixedUpdate()
     {
      Movement();   
+     
+    }
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Space)&&canjump)
+     {
+        StartCoroutine(jump());
+      canjump=false;
+
+     }
     }
     public void Movement()
     {
@@ -45,6 +57,20 @@ public class myplayer : MonoBehaviour
         float Verticaly=Input.GetAxis("Vertical");
         rb.velocity=new Vector2(Horizontalx*4,Verticaly*4);
         
+    }
+    public IEnumerator jump()
+    {
+        candamaged=false;
+     for(int i=0;i<30;i++)
+     {
+        transform.rotation=Quaternion.Euler(0,0,-12*i);
+        yield return new WaitForSeconds(0.025f);
+
+     }        
+     transform.rotation=Quaternion.Euler(0,0,0);
+     canjump=true;
+     candamaged=true;
+     yield break;
     }
     
 }

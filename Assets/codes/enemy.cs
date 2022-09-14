@@ -7,6 +7,7 @@ public class enemy :MonoBehaviour
 {
    public GameObject[] weapons;
    public Transform Weaponpos;
+   
    int i=0;
    Rigidbody2D rb;
    IEnumerator Dotween()
@@ -15,11 +16,11 @@ public class enemy :MonoBehaviour
     while( i==0)
     {
 
-    this.transform.DOScale(new Vector3(1.25f,1.25f,0),2f);
+    this.transform.DOScale(new Vector3(1f,1f,0),2f);
 
     yield return new WaitForSeconds(1f);
 
-    this.transform.DOScale(new Vector3(1.5f,1.5f,0),2f);
+    this.transform.DOScale(new Vector3(1.25f,1.25f,0),2f);
     
     yield return new WaitForSeconds(1f);
     }
@@ -34,11 +35,11 @@ public class enemy :MonoBehaviour
      GameObject weapon=Instantiate(weapons[randomint],Weaponpos.position,Quaternion.identity);
      weapon.GetComponent<Hweapon>().isplayer=false;
     }
-
+     
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        // collider oluştur collidera değince belirli bir uzaklığa 2-3 saniye yürüsün sonrasında da ateş etsin ya da yürürken ateş etsin  ve karakteri belirli mesafeden takip etsin
+        
 
     }
 }

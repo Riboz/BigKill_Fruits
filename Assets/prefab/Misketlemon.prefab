@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: -8882200491961403980, guid: 68bf7a231b2dc8f46a6a3704701ea21b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5447d29b29426b74a9aba9a317cf3eac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,9 +100,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.03645003, y: -0.12887487}
   serializedVersion: 2
-  m_Radius: 0.64
+  m_Radius: 0.5682716
 --- !u!50 &2931552084268824699
 Rigidbody2D:
   serializedVersion: 4
@@ -281,7 +281,7 @@ PrefabInstance:
     - target: {fileID: 7589479881076447119, guid: 2f90b00f1e7c2f247a430eeb36e473a6, type: 3}
       propertyPath: UVModule.sprites.Array.data[0].sprite
       value: 
-      objectReference: {fileID: 8649323527813462764, guid: 2bf3dd1f92293924087eb8bffdaad1bc, type: 3}
+      objectReference: {fileID: 21300000, guid: 9ab493671f7167848a13b317ae8a8b51, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f90b00f1e7c2f247a430eeb36e473a6, type: 3}
 --- !u!4 &2056236650348685661 stripped

@@ -178,6 +178,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7301920006571766384, guid: 6ac1562800382aa4f8c19ad7fb4a1c71, type: 3}
+      propertyPath: pos1
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7301920006571766384, guid: 6ac1562800382aa4f8c19ad7fb4a1c71, type: 3}
+      propertyPath: pos2
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ac1562800382aa4f8c19ad7fb4a1c71, type: 3}
 --- !u!1 &433357687
@@ -14406,6 +14414,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1318014895, guid: c8844d297712a1949a561be14bc5c2be, type: 3}
+      propertyPath: pos1
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1318014895, guid: c8844d297712a1949a561be14bc5c2be, type: 3}
+      propertyPath: pos2
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4415716739535648122, guid: c8844d297712a1949a561be14bc5c2be, type: 3}
       propertyPath: m_Name
       value: Watermelon
@@ -14470,7 +14486,7 @@ GameObject:
   - component: {fileID: 1423070725}
   m_Layer: 0
   m_Name: wall
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17407,7 +17423,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 9
+  orthographic size: 12
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -17446,7 +17462,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4289780751874960277, guid: e031e33610b63ee4e955663a0922aded, type: 3}
       propertyPath: m_Name
-      value: Misketlemon
+      value: Pineapple
       objectReference: {fileID: 0}
     - target: {fileID: 4289780751874960283, guid: e031e33610b63ee4e955663a0922aded, type: 3}
       propertyPath: m_RootOrder
@@ -17454,11 +17470,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4289780751874960283, guid: e031e33610b63ee4e955663a0922aded, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.316614
+      value: 0.33
       objectReference: {fileID: 0}
     - target: {fileID: 4289780751874960283, guid: e031e33610b63ee4e955663a0922aded, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.347044
+      value: -5.13
       objectReference: {fileID: 0}
     - target: {fileID: 4289780751874960283, guid: e031e33610b63ee4e955663a0922aded, type: 3}
       propertyPath: m_LocalPosition.z
@@ -17491,6 +17507,10 @@ PrefabInstance:
     - target: {fileID: 4289780751874960283, guid: e031e33610b63ee4e955663a0922aded, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6057887378172834979, guid: e031e33610b63ee4e955663a0922aded, type: 3}
+      propertyPath: pos1
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e031e33610b63ee4e955663a0922aded, type: 3}
@@ -17561,6 +17581,14 @@ PrefabInstance:
     - target: {fileID: 5997114300014168313, guid: e41869effbf57f640852d6d283808ef2, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5997114300014168314, guid: e41869effbf57f640852d6d283808ef2, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5997114300014168315, guid: e41869effbf57f640852d6d283808ef2, type: 3}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5997114300014168316, guid: e41869effbf57f640852d6d283808ef2, type: 3}
       propertyPath: m_RootOrder

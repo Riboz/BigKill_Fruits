@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - reimage
+  - wall
   layers:
   - Default
   - TransparentFX
