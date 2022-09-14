@@ -126,7 +126,7 @@ Transform:
   m_GameObject: {fileID: 5997114300014168313}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.98, y: -0.175, z: 0}
-  m_LocalScale: {x: 1.4, y: 1.4, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_Children:
   - {fileID: 5997114301742057757}
   - {fileID: 5997114301626014836}
@@ -174,12 +174,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 2307146440110936953, guid: 68bf7a231b2dc8f46a6a3704701ea21b, type: 3}
-  m_Color: {r: 0.6320754, g: 0.1633855, b: 0.3442458, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 7b6937eda4a56fb47a36a01e66dc6f85, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.28, y: 1.28}
+  m_Size: {x: 0.32, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -195,7 +195,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -221,7 +221,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &5997114300014168312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,12 +234,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f19144347d1f4c94f94a2f50edfce36d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  candamaged: 1
   weapons:
   - {fileID: 3036454313476028446, guid: bc8850a385de98a4d82392cda9fddf64, type: 3}
   - {fileID: 806133958263410114, guid: 68d3510b2b4f06e4ca9f6bcac10a0fb3, type: 3}
   - {fileID: 8383193459422543355, guid: 345726c73ea7091429cce76474cb9107, type: 3}
   reloadimage: {fileID: 114015366}
   Weaponpos: {fileID: 5997114301626014836}
+  Hp_point: 5
 --- !u!114 &3707784791681810523
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,5 +12,6 @@ public class bullets : MonoBehaviour
         {
            Destroy(this.gameObject);
         }
+        //playerle bağlantı kurulsun eğer damagable sa destroy edilmesin fln filan
     }
 }

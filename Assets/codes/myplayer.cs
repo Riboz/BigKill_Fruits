@@ -6,6 +6,7 @@ public class myplayer : MonoBehaviour
 {
     // Start is called before the first frame update
     public bool candamaged=true;
+    float speed=4;
     public GameObject[] weapons;
     Rigidbody2D rb;
     public  GameObject reloadimage;
@@ -55,12 +56,13 @@ public class myplayer : MonoBehaviour
     {
         float Horizontalx=Input.GetAxis("Horizontal");
         float Verticaly=Input.GetAxis("Vertical");
-        rb.velocity=new Vector2(Horizontalx*4,Verticaly*4);
+        rb.velocity=new Vector2(Horizontalx*speed,Verticaly*speed);
         
     }
     public IEnumerator jump()
     {
         candamaged=false;
+        speed=6;
      for(int i=0;i<30;i++)
      {
         transform.rotation=Quaternion.Euler(0,0,-12*i);
@@ -70,7 +72,18 @@ public class myplayer : MonoBehaviour
      transform.rotation=Quaternion.Euler(0,0,0);
      canjump=true;
      candamaged=true;
+     speed=4;
      yield break;
+    }
+    public int Hp_point=5;
+    public void hp(int hasar)
+    {
+        if(candamaged)
+        {
+
+        Hp_point-=hasar;
+
+        }
     }
     
 }
