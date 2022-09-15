@@ -130,7 +130,7 @@ public void FixedUpdate()
   else 
   {
     
-   Collider2D[] colliderx=Physics2D.OverlapCircleAll(this.transform.position,10f,playermask);
+   Collider2D[] colliderx=Physics2D.OverlapCircleAll(this.transform.position,12f,playermask);
    
    for(int i=0;i<=colliderx.Length-1;i++)
    {
@@ -179,7 +179,7 @@ public void FixedUpdate()
 void OnDrawGizmosSelected()
 {
 Gizmos.color=Color.red;
-Gizmos.DrawSphere(this.transform.position,10f);
+Gizmos.DrawSphere(this.transform.position,12f);
 }
 bool reload=true,Playerdetected=false;
 //panelde dolum tablosu yap ki gösterilsin

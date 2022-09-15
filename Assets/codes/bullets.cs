@@ -24,6 +24,20 @@ public class bullets : MonoBehaviour
             }
         }
        }
+
+        if(Ammo==ammo.friend) 
+       {
+        if(coll.gameObject.CompareTag("wall"))
+        {
+           Destroy(this.gameObject);
+        }
+        if(coll.gameObject.CompareTag("Enemy"))
+        {
+           coll.gameObject.GetComponent<enemy>().enemyhp(-1);
+           Destroy(this.gameObject);
+            }
+        }
+       }
         //playerle bağlantı kurulsun eğer damagable sa destroy edilmesin fln filan
-    }
-}
+    
+  }

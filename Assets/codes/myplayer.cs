@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class myplayer : MonoBehaviour
 {
     // Start is called before the first frame update
     public bool candamaged=true;
     float speed=4;
+    public Image healthimage;
+    public Sprite []tomatos;
     public GameObject[] weapons;
     Rigidbody2D rb;
-    public  GameObject reloadimage;
+    public  GameObject armor,reloadimage;
     public Transform Weaponpos;
+    
     void Start()
     {
    
@@ -75,15 +78,45 @@ public class myplayer : MonoBehaviour
      speed=4;
      yield break;
     }
-    public int Hp_point=5;
+    public int Hp_point=10;
     public void hp(int hasar)
     {
         if(candamaged)
         {
 
-        Hp_point-=hasar;
-
+        Hp_point+=hasar;
+         StartCoroutine(cantdamage());
         }
+        if(Hp_point==10)
+        {
+         healthimage.sprite=tomatos[0];
+        }
+        if(Hp_point==8)
+        {
+         healthimage.sprite=tomatos[1];
+        }
+         if(Hp_point==6)
+        {
+         healthimage.sprite=tomatos[2];
+        }
+         if(Hp_point==4)
+        {
+         healthimage.sprite=tomatos[3];
+        }
+        if(Hp_point==2)
+        {
+         healthimage.sprite=tomatos[4];
+        }
+        
+    }
+    IEnumerator cantdamage()
+    {
+        candamaged=false;
+        armor.SetActive(true);
+        yield return new WaitForSeconds(0.75f);
+        candamaged=true;
+        armor.SetActive(false);
+        yield break;
     }
     
 }

@@ -6,14 +6,31 @@ using DG.Tweening;
 public class enemy :MonoBehaviour
 {
    public GameObject[] weapons;
+   public int hp;
    public Transform Weaponpos;
    bool Follow=false,go;
    public Vector3 going;
  public LayerMask player;
+ GameObject weapon;
+ GameController gamcont;
    
    int i=0;
    Rigidbody2D rb;
    GameObject Player;
+   public void enemyhp(int hasar)
+    {
+     hp+=hasar;
+     if(hp<=0)
+     {
+        //particle effect  bıraksın ve destroy olsun
+         gamcont.enemycount(-1);
+        Destroy(this.gameObject);
+        Destroy(weapon);
+       
+       
+     }
+     
+    }
    IEnumerator Dotween()
  {
     
@@ -32,13 +49,14 @@ public class enemy :MonoBehaviour
  
     void Start()
     {
-        
+        gamcont=GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         StartCoroutine(Dotween());
         int randomint=Random.Range(0,3);
         Player=GameObject.FindGameObjectWithTag("Player");
      rb=GetComponent<Rigidbody2D>();
       going=new Vector3((int)Random.Range(-10,10),(int)Random.Range(-8,8),0);
-     GameObject weapon=Instantiate(weapons[randomint],Weaponpos.position,Quaternion.identity);
+    weapon=Instantiate(weapons[randomint],Weaponpos.position,Quaternion.identity);
+     
      StartCoroutine(weaponplace(weapon));
      weapon.GetComponent<Hweapon>().isplayer=false;
     }
@@ -64,7 +82,7 @@ public class enemy :MonoBehaviour
         {
         
 
-        if(Vector2.Distance(Player.transform.position,going)>6f && Vector2.Distance(Player.transform.position,going)<12f&&going.x>-17&&going.x>-17 &&going.y>-11&&going.y<16  )
+        if(Vector2.Distance(Player.transform.position,going)>8f && Vector2.Distance(Player.transform.position,going)<16f&&going.x>-38.5f&&going.x<3 &&going.y>-11&&going.y<16  )
         {
             
                Follow=false;
@@ -82,7 +100,7 @@ public class enemy :MonoBehaviour
         }
         if(go)
         {
-            this.transform.position=Vector3.MoveTowards(this.transform.position,going,4*Time.deltaTime);
+            this.transform.position=Vector3.MoveTowards(this.transform.position,going,4.5f*Time.deltaTime);
            if(this.transform.position==going)
            {
            
@@ -112,4 +130,5 @@ public class enemy :MonoBehaviour
    EnemyMovement();
 
     }
+    
 }

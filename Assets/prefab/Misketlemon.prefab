@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6057887378172834979}
   m_Layer: 0
   m_Name: Misketlemon
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,7 +123,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &6057887378172834979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,7 +140,12 @@ MonoBehaviour:
   - {fileID: 8383193459422543355, guid: 345726c73ea7091429cce76474cb9107, type: 3}
   - {fileID: 806133958263410114, guid: 68d3510b2b4f06e4ca9f6bcac10a0fb3, type: 3}
   - {fileID: 3036454313476028446, guid: bc8850a385de98a4d82392cda9fddf64, type: 3}
+  hp: 5
   Weaponpos: {fileID: 4289780752701058369}
+  going: {x: 0, y: 0, z: 0}
+  player:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1 &4289780752701058368
 GameObject:
   m_ObjectHideFlags: 0
