@@ -20,7 +20,7 @@ public class enemy :MonoBehaviour
    public void enemyhp(int hasar)
     {
      hp+=hasar;
-     if(hp<=0)
+     if(hp==0)
      {
         //particle effect  bıraksın ve destroy olsun
          gamcont.enemycount(-1);
