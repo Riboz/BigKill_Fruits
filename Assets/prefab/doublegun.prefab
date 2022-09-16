@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 6
   m_Sprite: {fileID: -7195979574005022846, guid: 68bf7a231b2dc8f46a6a3704701ea21b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -97,9 +97,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FireAmmoCount: 2
-  magazinecap: 5
-  currentmagcap: 5
-  cooldowntime: 1
+  magazinecap: 6
+  currentmagcap: 6
+  cooldowntime: 0.6
   isPlayer: 0
   AmmoType: {fileID: 7160618592062670227, guid: 2090550facda0ea4588e7bc98fe2c002, type: 3}
   ammotype2: {fileID: 583690809933149801, guid: d97f7c1c279a9774e97acc9bf803a0c5, type: 3}

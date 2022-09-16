@@ -6,7 +6,8 @@ public class myplayer : MonoBehaviour
 {
     // Start is called before the first frame update
     public bool candamaged=true;
-    float speed=4;
+    float speed=5;
+    public static int damagepower=1;
     public Image healthimage;
     public Sprite []tomatos;
     public GameObject[] weapons;
@@ -59,12 +60,12 @@ public class myplayer : MonoBehaviour
     {
         float Horizontalx=Input.GetAxis("Horizontal");
         float Verticaly=Input.GetAxis("Vertical");
-        rb.velocity=new Vector2(Horizontalx*speed,Verticaly*speed);
+        rb.velocity=new Vector2(Horizontalx,Verticaly).normalized*speed;
         
     }
     public IEnumerator jump()
     {
-        speed=6;
+        speed=7;
         candamaged=false;
      for(int i=0;i<30;i++)
      {
@@ -75,12 +76,21 @@ public class myplayer : MonoBehaviour
      transform.rotation=Quaternion.Euler(0,0,0);
      canjump=true;
      candamaged=true;
-     speed=4;
+     speed=5;
      yield break;
     }
     public int Hp_point=10;
+    public Sprite idle,hurt;
+    IEnumerator hurts()
+    {
+        this.gameObject.GetComponent<SpriteRenderer>().sprite=hurt;
+        yield return new WaitForSeconds(0.15f);
+        this.gameObject.GetComponent<SpriteRenderer>().sprite=idle;
+        yield break;
+    }
     public void hp(int hasar)
     {
+      StartCoroutine(hurts());
         if(candamaged)
         {
 
@@ -113,7 +123,7 @@ public class myplayer : MonoBehaviour
     {
         candamaged=false;
         armor.SetActive(true);
-        yield return new WaitForSeconds(0.75f);
+        yield return new WaitForSeconds(0.5f);
         candamaged=true;
         armor.SetActive(false);
         yield break;

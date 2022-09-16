@@ -246,7 +246,7 @@ yield break;
    if(isPlayer)
    {
     GameObject ammo=Instantiate(ammotype2,BulletTransform.position+new Vector3(Random.Range(0.2f,0.2f),Random.Range(0.2f,0.2f),0),Quaternion.identity);
-     ammo.GetComponent<Rigidbody2D>().AddForce(BulletTransform.right*12+new Vector3(Random.Range(1.5f*i,-1.5f*i),Random.Range(1.5f*i,-1.5f*i),0),ForceMode2D.Impulse);
+     ammo.GetComponent<Rigidbody2D>().AddForce(BulletTransform.right*15+new Vector3(Random.Range(1.5f*i,-1.5f*i),Random.Range(1.5f*i,-1.5f*i),0),ForceMode2D.Impulse);
      Destroy(ammo,4f);
      }
      else

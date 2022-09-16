@@ -9,22 +9,34 @@ public class enemy :MonoBehaviour
    public int hp;
    public Transform Weaponpos;
    bool Follow=false,go;
+  public  Sprite idle,hurts;
    public Vector3 going;
  public LayerMask player;
  GameObject weapon;
  GameController gamcont;
+ public ParticleSystem deatheffect;
    
    int i=0;
    Rigidbody2D rb;
    GameObject Player;
+   IEnumerator hurt()
+   {
+    this.gameObject.GetComponent<SpriteRenderer>().sprite=hurts;
+    yield return new WaitForSeconds(0.15f);
+    this.gameObject.GetComponent<SpriteRenderer>().sprite=idle;
+    yield break;
+   }
    public void enemyhp(int hasar)
     {
      hp+=hasar;
+    StartCoroutine(hurt());
      if(hp==0)
      {
         //particle effect  bıraksın ve destroy olsun
          gamcont.enemycount(-1);
+         Instantiate(deatheffect,this.transform.position,Quaternion.identity);
         Destroy(this.gameObject);
+        
         Destroy(weapon);
        
        
@@ -49,6 +61,7 @@ public class enemy :MonoBehaviour
  
     void Start()
     {
+      
         gamcont=GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         StartCoroutine(Dotween());
         int randomint=Random.Range(0,3);
@@ -100,7 +113,7 @@ public class enemy :MonoBehaviour
         }
         if(go)
         {
-            this.transform.position=Vector3.MoveTowards(this.transform.position,going,4.5f*Time.deltaTime);
+            this.transform.position=Vector3.MoveTowards(this.transform.position,going,4f*Time.deltaTime);
            if(this.transform.position==going)
            {
            

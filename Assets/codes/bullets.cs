@@ -33,7 +33,12 @@ public class bullets : MonoBehaviour
         }
         if(coll.gameObject.CompareTag("Enemy"))
         {
-           coll.gameObject.GetComponent<enemy>().enemyhp(-1);
+           coll.gameObject.GetComponent<enemy>().enemyhp(-1*myplayer.damagepower);
+           Destroy(this.gameObject);
+            }
+             if(coll.gameObject.CompareTag("choosing"))
+        {
+           coll.gameObject.GetComponent<choosing>().damageC(-1);
            Destroy(this.gameObject);
             }
         }
