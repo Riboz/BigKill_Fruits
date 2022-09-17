@@ -7,11 +7,46 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     public GameObject[]enemytypes;
      public  int wave=0;
-     public GameObject pepper;
-    public GameObject signals;
-    public TextMeshProUGUI leftenemy;
+     public GameObject pepper,bosspepper;
+    public GameObject signals,PepperDialogepanel;
+    public TextMeshProUGUI pepperspeak,leftenemy;
+    public string[] dialoge;
 
     public int EnemyCountperWave,nowEnemycounterwave;
+     IEnumerator peppertime()
+    {
+        yield return new WaitForSeconds(1f);
+        PepperDialogepanel.SetActive(true);
+        
+        for(int i=0;i<=dialoge.Length-1;i++)
+        {
+            pepperspeak.text+=" "+dialoge[i];
+        if(i==2)
+        {
+            yield return new WaitForSeconds(1.2f);
+            pepperspeak.text="";
+        }
+        if(i==7)
+        {
+            yield return new WaitForSeconds(1.2f);
+            pepperspeak.text="";
+        }
+         if(i==9)
+        {
+            yield return new WaitForSeconds(1.2f);
+            pepperspeak.text="";
+        }
+            yield return new WaitForSeconds(1.2f);
+        }
+        
+       yield return new WaitForSeconds(2f);
+        
+         bosspepper.SetActive(true);
+         PepperDialogepanel.SetActive(false);
+         StartCoroutine(Enemyspawner());
+         yield break;
+    }
+    
     void Start()
     {
         StartCoroutine(Enemyspawner());
@@ -20,21 +55,30 @@ public class GameController : MonoBehaviour
     {
       nowEnemycounterwave+=negative;
       leftenemy.text="Kalan düşman: "+nowEnemycounterwave;
-      if(nowEnemycounterwave==0 && wave<4)
+      if(nowEnemycounterwave==0 && wave<3)
       {
         StartCoroutine(Enemyspawner());
         
       }
-      if(wave==4 && nowEnemycounterwave==0 )
+      if(wave==3 && nowEnemycounterwave==0 )
       {
         //geliştirme yapan adam belirecek
         pepper.SetActive(true);
       }
-      if(nowEnemycounterwave==0 && wave>4)
+      if(nowEnemycounterwave==0 && wave>3 && wave < 7)
       {
         StartCoroutine(Enemyspawner());
         
       }
+       if(wave==7 && nowEnemycounterwave==0 )
+      {
+         // boss spawnlansın
+         //bu alttaki fonksiyonları bir enumeratore bağla belli bir süreden sonra texte hikaye yazaar gibi yazdır ve oyuna başla vb vb
+
+        StartCoroutine(peppertime());
+         
+      }
+     
     }
     public IEnumerator Enemyspawner()
     {
