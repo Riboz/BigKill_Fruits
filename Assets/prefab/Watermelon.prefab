@@ -305,7 +305,7 @@ MonoBehaviour:
   - {fileID: 3036454313476028446, guid: bc8850a385de98a4d82392cda9fddf64, type: 3}
   - {fileID: 806133958263410114, guid: 68d3510b2b4f06e4ca9f6bcac10a0fb3, type: 3}
   - {fileID: 8383193459422543355, guid: 345726c73ea7091429cce76474cb9107, type: 3}
-  hp: 10
+  hp: 12
   Weaponpos: {fileID: 483553225519876851}
   idle: {fileID: 21300000, guid: 85a6656d70110114ea94e088430c951a, type: 3}
   hurts: {fileID: 21300000, guid: 12766064fa2856246b5537cfcd52507e, type: 3}

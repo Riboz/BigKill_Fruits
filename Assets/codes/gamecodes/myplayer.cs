@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class myplayer : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -14,13 +15,10 @@ public class myplayer : MonoBehaviour
     Rigidbody2D rb;
     public  GameObject armor,reloadimage;
     public Transform Weaponpos;
+    public static int randomint;
     
     void Start()
     {
-   
-
-     int randomint=Random.Range(0,3);
-
      rb=GetComponent<Rigidbody2D>();
 
      GameObject weapon=Instantiate(weapons[randomint],Weaponpos.position,Quaternion.identity);
@@ -117,8 +115,14 @@ public class myplayer : MonoBehaviour
         {
          healthimage.sprite=tomatos[4];
         }
+        if(Hp_point==0)
+        {
+            SceneManager.LoadScene("Chooseweapon");
+              dead=true;
+        }
         
     }
+    public static bool dead=false;
     IEnumerator cantdamage()
     {
         candamaged=false;

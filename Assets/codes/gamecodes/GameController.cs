@@ -15,6 +15,7 @@ public class GameController : MonoBehaviour
     public int EnemyCountperWave,nowEnemycounterwave;
      IEnumerator peppertime()
     {
+         
         yield return new WaitForSeconds(1f);
         PepperDialogepanel.SetActive(true);
         
@@ -74,7 +75,7 @@ public class GameController : MonoBehaviour
       {
          // boss spawnlansın
          //bu alttaki fonksiyonları bir enumeratore bağla belli bir süreden sonra texte hikaye yazaar gibi yazdır ve oyuna başla vb vb
-
+        pepperspeak.text=" ";
         StartCoroutine(peppertime());
          
       }
@@ -105,8 +106,13 @@ public class GameController : MonoBehaviour
         yield break;
     }
     // Update is called once per frame
-    void Update()
+    public GameObject winnerpanel;
+    void FixedUpdate()
     {
-        
+        if(nowEnemycounterwave==-1)
+        {
+          // tebrikler oyunu kazandınız
+          winnerpanel.SetActive(true);
+        }
     }
 }

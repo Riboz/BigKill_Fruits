@@ -19,9 +19,10 @@ public class peppercode : MonoBehaviour
     }
     IEnumerator peppertime()
     {
+        pepperspeak.text="";
         yield return new WaitForSeconds(2f);
         PepperDialogepanel.SetActive(true);
-        
+        pepperspeak.text+=" ";
         for(int i=0;i<=dialoge.Length-1;i++)
         {
             pepperspeak.text+=" "+dialoge[i];

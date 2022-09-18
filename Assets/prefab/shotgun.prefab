@@ -129,7 +129,7 @@ MonoBehaviour:
   FireAmmoCount: 5
   magazinecap: 3
   currentmagcap: 3
-  cooldowntime: 1.5
+  cooldowntime: 1.25
   isPlayer: 0
   AmmoType: {fileID: 7160618592062670227, guid: 2090550facda0ea4588e7bc98fe2c002, type: 3}
   ammotype2: {fileID: 583690809933149801, guid: d97f7c1c279a9774e97acc9bf803a0c5, type: 3}
